@@ -87,6 +87,7 @@ class HTTPClient(object):
         sock.send("Accept: */*\r\n\r\n")
 
         response = self.recvall(sock)
+        print response
         code = self.get_code(response)
         body = self.get_body(response)
         headers = self.get_headers(response)
@@ -120,6 +121,7 @@ class HTTPClient(object):
             sockpost.send(encoded)
 
         response = self.recvall(sockpost)
+        print response
         code = self.get_code(response)
         body = self.get_body(response)      
         return HTTPResponse(int(code), body)
